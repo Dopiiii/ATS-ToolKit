@@ -1,0 +1,261 @@
+# ATS-Toolkit .gitignore
+# Professional Python cybersecurity suite
+
+# ============================================================================
+# SECURITY & SENSITIVE DATA (NEVER COMMIT)
+# ============================================================================
+
+# API Keys and secrets
+config/api_keys.env
+config/*.key
+config/*.pem
+*.env
+.env.local
+secrets/
+credentials/
+
+# Encrypted databases (may contain sensitive scan data)
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+consent.db
+cache.db
+loot.db
+
+# Scan results and reports (may contain sensitive findings)
+reports/*.pdf
+reports/*.json
+reports/*.html
+reports/*.md
+loot/
+findings/
+screenshots/
+
+# SSH keys and certificates
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# ============================================================================
+# PYTHON
+# ============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.python-version
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# Poetry
+poetry.lock
+
+# ============================================================================
+# LOGS & TEMPORARY FILES
+# ============================================================================
+
+logs/*.log
+*.log
+*.log.*
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Debug files
+debug/
+*.debug
+
+# ============================================================================
+# IDEs & EDITORS
+# ============================================================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*.swn
+.vim/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================================================
+# DOCKER
+# ============================================================================
+
+# Docker volumes
+docker/volumes/
+*.dockerignore.local
+
+# ============================================================================
+# OS SPECIFIC
+# ============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================================================
+# ATS-TOOLKIT SPECIFIC
+# ============================================================================
+
+# Wordlists (large files, download separately)
+config/wordlists/*.txt
+!config/wordlists/.gitkeep
+
+# Payloads (potentially flagged by AV)
+config/payloads/*.bin
+config/payloads/*.exe
+config/payloads/*.dll
+
+# Test outputs
+tests/output/
+tests/*.db
+
+# Forensics dumps (large files)
+forensics/dumps/
+*.raw
+*.dump
+*.mem
+*.vmem
+
+# Malware samples (NEVER commit real malware)
+malware_dev/samples/
+*.malware
+
+# Honeypot logs (may contain attack data)
+deception/logs/
+
+# ============================================================================
+# DOCUMENTATION BUILD
+# ============================================================================
+
+# MkDocs
+site/
+docs/_build/
+
+# Sphinx
+_build/
+_static/
+_templates/
+
+# ============================================================================
+# MISC
+# ============================================================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Large data files
+*.csv.large
+*.json.large
+
+# Node modules (if using npm for frontend)
+node_modules/
+package-lock.json
+
+# ============================================================================
+# KEEP THESE FILES (whitelist)
+# ============================================================================
+
+# Keep example configs
+!config/api_keys.env.example
+!config/*.yaml
+!config/*.yml
+
+# Keep gitkeep files
+!.gitkeep
+
+# Keep README files
+!README.md
+!*/README.md

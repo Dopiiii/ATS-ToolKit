@@ -1,6 +1,8 @@
-MIT License
+# MIT License + Educational Use Annex
 
-Copyright (c) 2026 ATS-Dopi
+**Copyright (c)**
+
+## MIT License (Base)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +21,167 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+## Educational Use Annex (Additional Terms)
+
+### 1. PURPOSE & SCOPE
+
+ATS-Toolkit (Attack & Testing Suite) is designed EXCLUSIVELY for:
+- **Educational purposes** in cybersecurity training and research
+- **Authorized security testing** with explicit written permission
+- **Ethical hacking** within legal frameworks and bug bounty programs
+- **Academic research** with proper institutional approval
+
+### 2. PROHIBITED USES
+
+The following uses are STRICTLY PROHIBITED and constitute license violations:
+
+- **Unauthorized Access**: Using ATS-Toolkit to access any computer system, network, or data without explicit written permission from the legal owner
+- **Malicious Activities**: Deploying, distributing, or using any component for illegal, unethical, or harmful purposes
+- **Criminal Intent**: Using the software to commit fraud, theft, extortion, harassment, or any criminal offense
+- **Weaponization**: Converting educational modules into actual malware or attack tools for real-world deployment
+- **Data Theft**: Harvesting, collecting, or exfiltrating personal, confidential, or proprietary data without authorization
+- **Disruption**: Causing denial of service, system degradation, or infrastructure damage
+
+### 3. AUTHORIZATION REQUIREMENTS
+
+Before using ATS-Toolkit on ANY system, users MUST:
+
+1. **Own the system** (personal VMs, localhost, isolated test environments), OR
+2. **Obtain written authorization** - Signed, dated contract or agreement from system owner, OR
+3. **Participate in authorized programs** - Bug bounty, pentest engagements with scope documentation
+
+**Acceptable Testing Environments:**
+- Personal virtual machines (VirtualBox, VMware, QEMU)
+- Docker containers on owned infrastructure
+- Educational platforms: DVWA, bWAPP, Metasploitable, WebGoat, HackTheBox Pro Labs
+- Authorized bug bounty targets (HackerOne, Bugcrowd, etc.) within scope
+- Corporate pentests with signed SOW (Statement of Work)
+
+### 4. LEGAL COMPLIANCE
+
+Users are SOLELY RESPONSIBLE for compliance with:
+
+- **Local Laws**: Computer misuse, hacking, and cybercrime laws in their jurisdiction
+- **International Treaties**: Budapest Convention on Cybercrime, GDPR, CCPA, etc.
+- **Terms of Service**: Cloud providers, hosting companies, online platforms
+- **Ethical Standards**: Professional codes of conduct (EC-Council, GIAC, OSCP ethics)
+
+**Criminal Penalties** for unauthorized use may include:
+- Prison sentences (up to 10+ years in many jurisdictions)
+- Substantial fines (€75,000+ EUR, $250,000+ USD, or more)
+- Civil damages and lawsuits
+- Professional disbarment and reputational harm
+
+### 5. LIABILITY & DISCLAIMER
+
+**Author Liability:**
+- The author(s) of ATS-Toolkit assume **ZERO legal, criminal, or civil liability** for any misuse
+- The software is provided "AS IS" with **NO WARRANTIES** of any kind
+- The author(s) are **NOT RESPONSIBLE** for user actions, consequences, or damages
+
+**User Responsibility:**
+- Users assume **100% FULL RESPONSIBILITY** for their actions
+- Users **INDEMNIFY AND HOLD HARMLESS** the author(s) from any claims, damages, or legal actions
+- Users **ACKNOWLEDGE** that unauthorized computer access is illegal and accept all risks
+
+### 6. CONSENT & AUDIT TRAIL
+
+ATS-Toolkit implements a **mandatory consent tracking system**:
+- Cryptographic consent hash (SHA256) generated before each scan
+- Immutable blockchain-inspired audit log stored locally
+- Users MUST provide valid consent verification to execute modules
+- Logs serve as proof of authorization in case of legal scrutiny
+
+**Consent Format:**
+```
+Target: [domain/IP/system]
+Modules: [list of tools used]
+Authorization: [contract reference, bug bounty program, ownership proof]
+Timestamp: [ISO 8601 UTC]
+Hash: [SHA256 cryptographic signature]
+```
+
+### 7. COMMERCIAL USE
+
+- **Non-commercial use**: Freely permitted under educational annex terms
+- **Commercial use**: Requires separate written license agreement with author
+- **Consulting/Training**: Permitted with proper attribution and disclaimer inclusion
+- **SaaS/Cloud Offerings**: NOT permitted without explicit authorization
+
+### 8. ATTRIBUTION
+
+When using ATS-Toolkit in research, training, or publications:
+- Provide clear attribution to "ATS-Toolkit by Eric (Strasbourg, France)"
+- Include link to official repository
+- Cite in academic papers with proper reference format
+- Maintain all copyright notices and disclaimer text
+
+### 9. MODIFICATIONS & DERIVATIVES
+
+- Modifications and derivative works are permitted under MIT terms
+- Modified versions MUST retain this Educational Use Annex
+- Modifications MUST NOT remove or weaken legal disclaimers
+- Derivative works MUST include prominent notice of changes
+
+### 10. TERMINATION
+
+This license automatically terminates if user:
+- Violates any term of this Educational Use Annex
+- Uses software for illegal or unauthorized purposes
+- Removes or modifies copyright notices or disclaimers
+- Fails to comply with applicable laws and regulations
+
+Upon termination:
+- User must cease all use of ATS-Toolkit immediately
+- User must destroy all copies in their possession
+- License grant is revoked retroactively
+- User remains liable for any violations committed
+
+### 11. GOVERNING LAW
+
+- This license is governed by **French law** and **European Union regulations**
+- Disputes subject to jurisdiction of courts in **Strasbourg, France**
+- International users also subject to their local jurisdiction laws
+- Cross-border computer crimes may involve multiple legal systems
+
+### 12. ENTIRE AGREEMENT
+
+This MIT License + Educational Use Annex constitutes the entire license agreement between author and users. This agreement supersedes any prior oral or written agreements.
+
+### 13. SEVERABILITY
+
+If any provision of this Educational Use Annex is held invalid or unenforceable, the remaining provisions remain in full force and effect.
+
+---
+
+## ACCEPTANCE
+
+**BY USING ATS-TOOLKIT, YOU ACKNOWLEDGE THAT YOU HAVE:**
+- ✓ Read and understood this entire license including Educational Use Annex
+- ✓ Agreed to use the software ONLY for authorized, legal, ethical purposes
+- ✓ Accepted full personal responsibility for your actions and their consequences
+- ✓ Understood that unauthorized computer access is a serious crime
+- ✓ Committed to obtaining proper authorization before testing any system
+- ✓ Agreed to hold the author harmless from any claims or damages
+
+**IF YOU DO NOT AGREE TO THESE TERMS, DO NOT USE ATS-TOOLKIT.**
+
+---
+
+## CONTACT
+
+- **Project**: ATS-Toolkit (Attack & Testing Suite)
+- **Author**: ATSDopi
+- **Year**: 2026
+- **Repository**: [GitHub - ATS-Toolkit]
+- **Security Issues**: atsprofessional@gmail.com (for vulnerabilities in ATS-Toolkit itself)
+- **Legal Questions**: legal@ats-toolkit.dev
+
+---
+
+**Last Updated**: January 19, 2026  
+**Version**: 1.0.0 (early) 
+**License Type**: MIT + Educational Use Annex

@@ -448,13 +448,13 @@ if __name__ == "__main__":
         
     elif args.cleanup:
         deleted = cache.cleanup_expired()
-        print_success(f"✓ Cleaned up {deleted} expired entries")
+        print_success(f"[+] Cleaned up {deleted} expired entries")
         
     elif args.clear:
         response = input("⚠ WARNING: This will delete ALL cached data. Continue? (yes/no): ")
         if response.lower() == 'yes':
             deleted = cache.clear_all()
-            print_success(f"✓ Cleared {deleted} cache entries")
+            print_success(f"[+] Cleared {deleted} cache entries")
         else:
             print_info("Operation cancelled")
             
@@ -475,14 +475,14 @@ if __name__ == "__main__":
     elif args.get:
         value = cache.get(args.get)
         if value:
-            print_success(f"✓ Cached value for '{args.get}':")
+            print_success(f"[+] Cached value for '{args.get}':")
             print(json.dumps(value, indent=2))
         else:
             print_warning(f"No cached value found for '{args.get}'")
             
     elif args.delete:
         if cache.delete(args.delete):
-            print_success(f"✓ Deleted cache entry '{args.delete}'")
+            print_success(f"[+] Deleted cache entry '{args.delete}'")
         else:
             print_warning(f"Cache entry '{args.delete}' not found")
             

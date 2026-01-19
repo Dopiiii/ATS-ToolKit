@@ -259,3 +259,4 @@ package-lock.json
 # Keep README files
 !README.md
 !*/README.md
+/.claude

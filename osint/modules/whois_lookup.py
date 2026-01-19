@@ -255,7 +255,7 @@ def display_whois_results(result: Dict):
     """
     data = result['data']
     
-    print_success(f"\n✓ WHOIS Information for {result['target']}")
+    print_success(f"\n[+] WHOIS Information for {result['target']}")
     print(f"{'='*70}")
     
     if data['registrar']:
@@ -276,7 +276,7 @@ def display_whois_results(result: Dict):
     if data['name_servers']:
         print(f"\nName Servers:")
         for ns in data['name_servers'][:5]:
-            print(f"  • {ns}")
+            print(f"  - {ns}")
     
     if data['registrant']:
         print(f"\nRegistrant:       {data['registrant']}")
@@ -357,11 +357,11 @@ if __name__ == "__main__":
             display_whois_results(result)
         
     except InvalidTargetError as e:
-        print_error(f"✗ Invalid domain: {e}")
+        print_error(f"[x] Invalid domain: {e}")
         sys.exit(1)
     except ModuleExecutionError as e:
-        print_error(f"✗ WHOIS lookup failed: {e}")
+        print_error(f"[x] WHOIS lookup failed: {e}")
         sys.exit(1)
     except Exception as e:
-        print_error(f"✗ Unexpected error: {e}")
+        print_error(f"[x] Unexpected error: {e}")
         sys.exit(1)

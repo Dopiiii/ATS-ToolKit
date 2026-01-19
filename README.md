@@ -1,12 +1,21 @@
+<div align="center">
+
 # ATS-Toolkit v2.0
 
-Professional Security & Intelligence Framework
+**Professional Security & Intelligence Framework**
 
-***
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey.svg)](https://github.com/ATS-strasbourg/ATS-toolkit)
+[![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/ATS-strasbourg/ATS-toolkit)
+
+</div>
+
+---
 
 **CRITICAL LEGAL NOTICE**: ATS-Toolkit is strictly for educational and authorized use only. Unauthorized access to computer systems is illegal. Users assume full responsibility for compliance with applicable laws. See [Legal Disclaimer](#legal-disclaimer) below.
 
-***
+---
 
 ## Table of Contents
 
@@ -28,13 +37,13 @@ Professional Security & Intelligence Framework
 - [Support](#support)
 - [License](#license)
 
-***
+---
 
 ## Overview
 
-ATS-Toolkit v2.0 is a comprehensive, modular cybersecurity framework for authorized security professionals and educators. It combines OSINT reconnaissance, penetration testing, red team operations, digital forensics, vulnerability fuzzing, machine learning threat detection, and deception technology into a unified platform.
+ATS-Toolkit v2.0 is a comprehensive, modular cybersecurity framework designed for authorized security professionals and educators. The platform integrates OSINT reconnaissance, penetration testing, red team operations, digital forensics, vulnerability fuzzing, machine learning threat detection, and deception technology within a unified architecture.
 
-The toolkit emphasizes ethical use through blockchain-inspired consent tracking, ensuring every operation is logged with cryptographic verification of authorization.
+The framework implements blockchain-inspired consent tracking to ensure ethical usage, with cryptographic verification and immutable logging of all authorization events.
 
 ### Design Principles
 
@@ -45,15 +54,15 @@ The toolkit emphasizes ethical use through blockchain-inspired consent tracking,
 - **Cross-Platform**: Seamless operation on Windows, Linux, macOS, and Docker
 - **Modern Architecture**: Async/await patterns, encrypted caching, real-time dashboards
 
-### Use Cases
+### Target Audience
 
-- Cybersecurity students learning OSINT, pentesting, and red team tactics
-- Bug bounty hunters conducting reconnaissance on authorized targets
-- Penetration testers performing authorized security assessments
-- SOC analysts practicing threat hunting and incident response
-- Researchers studying cybersecurity techniques in isolated lab environments
+- **Security Professionals**: Penetration testers conducting authorized security assessments
+- **Bug Bounty Researchers**: Ethical hackers performing reconnaissance on authorized targets
+- **SOC Analysts**: Security operations personnel practicing threat hunting and incident response
+- **Cybersecurity Students**: Learners developing practical skills in OSINT, pentesting, and red team tactics
+- **Academic Researchers**: Security researchers conducting studies in isolated laboratory environments
 
-***
+---
 
 ## Legal Disclaimer
 
@@ -88,17 +97,17 @@ Unauthorized computer access is a criminal offense with severe penalties:
 - **European Union**: GDPR violations - Up to €20 million or 4% of annual revenue
 - **International**: Cybercrime conventions and extradition treaties apply globally
 
-### Liability Assumption
+### Liability and Acknowledgment
 
-By using ATS-Toolkit, you acknowledge and accept:
+By using ATS-Toolkit, you acknowledge and accept the following terms:
 
-1. You have read and fully understand this disclaimer
-2. You will only use this toolkit on systems you own or have explicit written authorization to test
-3. You assume 100% legal and criminal responsibility for your actions
-4. The author assumes zero liability for any misuse, damage, or consequences
-5. You will comply with all applicable laws and regulations in your jurisdiction
+1. You have thoroughly reviewed and understand all provisions of this disclaimer
+2. You will exclusively use this toolkit on systems you own or have explicit written authorization to test
+3. You assume complete legal and criminal responsibility for all actions taken with this software
+4. The authors and contributors disclaim all liability for misuse, damages, or legal consequences
+5. You will maintain full compliance with all applicable laws and regulations in your jurisdiction
 
-***
+---
 
 ## Features
 
@@ -201,7 +210,7 @@ Advanced post-exploitation and evasion techniques for authorized testing:
 - Persistence mechanism library (Registry, cron, Task Scheduler)
 - Data exfiltration channels (DNS, ICMP, HTTP, S3)
 
-**Note**: All Red Team modules are educational templates for isolated lab testing only. Never deploy in production environments.
+**Important**: All Red Team modules are educational templates designed exclusively for isolated laboratory testing. Production deployment is strictly prohibited.
 
 ### Digital Forensics Suite (8 Modules)
 
@@ -271,7 +280,7 @@ Ongoing security monitoring and alerting:
 - Multi-platform alerting (Slack, Discord, Telegram, Email)
 - Scheduled scanning via APScheduler
 
-***
+---
 
 ## Project Structure
 
@@ -514,7 +523,7 @@ ATS-toolkit/
         └── publish.yml                        # Release workflow
 ```
 
-***
+---
 
 ## Platform Support
 
@@ -527,7 +536,7 @@ ATS-toolkit/
 | **Docker** | Fully Supported | Multi-arch (ARM/x86-64) |
 | **Kubernetes** | Experimental | Helm charts coming soon |
 
-***
+---
 
 ## Installation
 
@@ -644,20 +653,20 @@ pip install ATS-toolkit
 ATS-toolkit --help
 ```
 
-***
+---
 
 ## Quick Start
 
-### 1. Accept Legal Disclaimer
+### 1. Legal Compliance
 
 ```bash
 python toolkit.py --mode web
 ```
 
-On first launch, you must:
-1. Read the legal disclaimer
-2. Click "Accept & Generate Consent Hash"
-3. Keep your consent hash safe (provides authorization proof)
+On initial launch, complete the following steps:
+1. Review the complete legal disclaimer
+2. Accept terms and generate consent hash
+3. Securely store your consent hash for authorization verification
 
 ### 2. Run Your First OSINT Scan
 
@@ -692,13 +701,13 @@ python toolkit.py --mode web
 # Opens http://localhost:8501
 ```
 
-Dashboard workflow:
-1. Accept legal disclaimer
-2. Select module section (OSINT/Pentest/RedTeam/Forensics)
-3. Enter target information
-4. Select specific modules or use pipeline presets
-5. Monitor real-time progress
-6. Export reports (PDF/JSON/Markdown)
+**Workflow Overview:**
+1. Complete legal compliance and accept terms
+2. Select operational module section (OSINT/Pentest/RedTeam/Forensics)
+3. Configure target information and scope
+4. Choose specific modules or utilize pipeline presets
+5. Monitor real-time execution progress
+6. Generate and export reports in multiple formats (PDF/JSON/Markdown)
 
 ### 4. Run Test Environment
 
@@ -717,7 +726,7 @@ python toolkit.py --section pentest \
 # Honeypot SSH: localhost:2222
 ```
 
-***
+---
 
 ## Module Reference
 
@@ -790,7 +799,7 @@ python toolkit.py --section pentest \
 | wireless_audit | WiFi testing | Interface | WPA2 crack |
 | hybrid_scan | Full assessment | Target | All findings |
 
-***
+---
 
 ## CLI Usage
 
@@ -864,7 +873,7 @@ python toolkit.py --section forensics \
 | --help | flag | - | Show help |
 | --version | flag | - | Show version |
 
-***
+---
 
 ## Dashboard Interface
 
@@ -891,7 +900,7 @@ python toolkit.py --section forensics \
 - Consent verification
 - Dark mode (default)
 
-***
+---
 
 ## Configuration
 
@@ -938,7 +947,7 @@ Place custom wordlists in `config/wordlists/`:
 - `webpaths.txt` - Directory/file paths
 - `params.txt` - API parameter names
 
-***
+---
 
 ## Testing Environment
 
@@ -977,7 +986,7 @@ Available in `docs/examples/`:
 - `incident_response.md` - Forensics and IR
 - `lab_setup.md` - Lab environment configuration
 
-***
+---
 
 ## Development
 
@@ -1039,7 +1048,7 @@ mkdocs serve
 - Docker builds
 - PyPI publication
 
-***
+---
 
 ## Contributing
 
@@ -1107,69 +1116,69 @@ async def execute(target: str, config: Dict) -> ModuleResult:
 - **Testing**: Unit tests + integration tests (80%+ coverage)
 - **Documentation**: Inline comments, module docstrings
 
-***
+---
 
 ## FAQ
 
 ### General Questions
 
 **Q: Is ATS-Toolkit legal?**
-A: Yes, when used ONLY on authorized systems. Unauthorized access is illegal worldwide.
+A: Yes, when used exclusively on authorized systems. Unauthorized access is illegal worldwide.
 
 **Q: Can I use this for bug bounties?**
-A: Yes, strictly within authorized programs (HackerOne, Bugcrowd) following their rules.
+A: Yes, strictly within authorized programs (HackerOne, Bugcrowd) following program guidelines.
 
 **Q: What's the difference between sections?**
-A: OSINT (passive gathering) vs Pentest (active testing) vs RedTeam (exploitation).
+A: OSINT focuses on passive information gathering, Pentest performs active vulnerability testing, and RedTeam simulates adversarial exploitation.
 
 **Q: Do I need programming knowledge?**
-A: No for basic CLI/dashboard usage. Yes for module development.
+A: Basic CLI/dashboard usage requires no programming experience. Module development requires Python proficiency.
 
 ### Technical Questions
 
 **Q: Why is consent tracking important?**
-A: Provides cryptographic proof of authorization, protecting you legally.
+A: Consent tracking provides cryptographic proof of authorization for legal compliance and audit trails.
 
 **Q: How does the cache work?**
-A: Encrypted SQLite storage with automatic TTL expiration (reduces API calls).
+A: The system uses encrypted SQLite storage with automatic TTL expiration to optimize API usage and reduce redundant requests.
 
 **Q: Can I run this on Windows?**
-A: Yes, via WSL2 Kali (recommended) or native (limited support).
+A: Yes, via WSL2 with Kali Linux (recommended) or natively (with limited functionality).
 
 **Q: What Docker images are included?**
-A: DVWA, Metasploitable, Cowrie, Cuckoo for safe practice.
+A: The test environment includes DVWA, Metasploitable, Cowrie, and Cuckoo for secure practice environments.
 
 ### Module Questions
 
 **Q: Which OSINT modules work without API keys?**
-A: Most (crt.sh, DNS, WHOIS). APIs like Shodan require free registration.
+A: Most modules including crt.sh, DNS, and WHOIS operate without API keys. Services like Shodan require free registration for API access.
 
 **Q: Are Red Team modules real malware?**
-A: No, they're educational templates for isolated labs only.
+A: No, these are educational templates designed exclusively for isolated laboratory environments.
 
 **Q: Can I add custom modules?**
-A: Yes, see CONTRIBUTING.md for guidelines.
+A: Yes, refer to CONTRIBUTING.md for module development guidelines and standards.
 
 ### Legal Questions
 
 **Q: What if I accidentally scan an unauthorized system?**
-A: STOP immediately, document the error, contact the system owner. YOU are responsible.
+A: Cease all activity immediately, document the incident, and notify the system owner. Users bear full legal responsibility for their actions.
 
 **Q: What's required for corporate pentesting?**
-A: Written contract, explicit management approval, formal authorization.
+A: Corporate penetration testing requires a written contract, explicit management approval, and formal scope authorization.
 
 **Q: How do I handle responsible disclosure?**
-A: Follow 90-day standard disclosure process with vendors.
+A: Follow the industry-standard 90-day coordinated disclosure process with affected vendors.
 
-***
+---
 
 ## Support
 
-### Getting Help
+### Resources
 
-- **Documentation**: [docs.ATS-toolkit.dev](https://docs.ATS-toolkit.dev) (coming soon)
-- **GitHub Issues**: [Report bugs](https://github.com/ATS-strasbourg/ATS-toolkit/issues)
-- **GitHub Discussions**: [Ask questions](https://github.com/ATS-strasbourg/ATS-toolkit/discussions)
+- **Documentation**: [docs.ATS-toolkit.dev](https://docs.ATS-toolkit.dev)
+- **Issue Tracker**: [GitHub Issues](https://github.com/ATS-strasbourg/ATS-toolkit/issues)
+- **Community Forum**: [GitHub Discussions](https://github.com/ATS-strasbourg/ATS-toolkit/discussions)
 
 ### Reporting Issues
 
@@ -1181,36 +1190,49 @@ python toolkit.py --system-info > debug.txt
 
 ### Security Vulnerabilities
 
-Found a vulnerability? Email: [security@ATS-toolkit.dev](mailto:security@ATS-toolkit.dev)
+Report security vulnerabilities to: [security@ATS-toolkit.dev](mailto:security@ATS-toolkit.dev)
 
-***
+---
 
 ## License
 
 ATS-Toolkit v2.0 is released under the MIT License with an Educational Use Annex.
 
-**MIT License + Educational Annex**
+```
+MIT License + Educational Use Annex
 
 Copyright (c) 2026 ATS
 
-Permission is hereby granted to use this software SOLELY for educational, research, and authorized security testing purposes.
+Permission is hereby granted to use this software exclusively for educational,
+research, and authorized security testing purposes.
+```
 
 **Additional Terms:**
-1. Commercial use requires written authorization
-2. Malicious use is strictly prohibited
-3. Users must comply with all applicable laws
-4. Author disclaims all liability for misuse
+1. Commercial use requires explicit written authorization
+2. Malicious use is strictly prohibited and may result in legal action
+3. Users must maintain full compliance with all applicable laws
+4. Authors and contributors disclaim all liability for misuse
 
-See LICENSE file for complete terms.
+Refer to the [LICENSE](LICENSE) file for complete terms and conditions.
 
-***
+---
 
-**⚠️ Remember: With great power comes great responsibility ⚠️**
+<div align="center">
 
-Always obtain explicit written authorization before testing any system. Unauthorized access is illegal and carries severe criminal penalties worldwide. Use ethically and responsibly.
+**ATS-Toolkit v2.0**
 
-***
+*Professional Security & Intelligence Framework*
 
-**ATS-Toolkit v2.0** - Professional Security & Intelligence Framework  
-Built for authorized cybersecurity professionals and educators worldwide.
-```
+Designed for authorized cybersecurity professionals and educators worldwide.
+
+**⚠️ LEGAL NOTICE ⚠️**
+
+Always obtain explicit written authorization before testing any system.
+
+Unauthorized access is illegal and carries severe criminal penalties worldwide.
+
+---
+
+© 2026 ATS - All Rights Reserved
+
+</div>

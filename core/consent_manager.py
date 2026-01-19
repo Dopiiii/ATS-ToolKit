@@ -303,7 +303,7 @@ class ConsentManager:
             >>> cm = ConsentManager()
             >>> valid, error = cm.verify_chain_integrity()
             >>> if valid:
-            >>>     print("✓ Chain integrity verified")
+            >>>     print("[+] Chain integrity verified")
         """
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -384,9 +384,9 @@ class ConsentManager:
         # Verify integrity
         valid, error = self.verify_chain_integrity()
         if valid:
-            print_success("  Chain Integrity: ✓ VALID")
+            print_success("  Chain Integrity: [+] VALID")
         else:
-            print_error(f"  Chain Integrity: ✗ INVALID - {error}")
+            print_error(f"  Chain Integrity: [x] INVALID - {error}")
 
 
 # ============================================================================
@@ -425,14 +425,14 @@ if __name__ == "__main__":
         try:
             valid = cm.verify_consent(args.verify)
             if valid:
-                print_success(f"✓ Consent hash is VALID: {args.verify}")
+                print_success(f"[+] Consent hash is VALID: {args.verify}")
                 details = cm.get_consent_details(args.verify)
                 if details:
                     print(f"Target: {details.target}")
                     print(f"Modules: {', '.join(details.modules_list)}")
                     print(f"Timestamp: {details.timestamp}")
         except InvalidConsentHashError as e:
-            print_error(f"✗ {e}")
+            print_error(f"[x] {e}")
             
     elif args.stats:
         cm.display_stats()
@@ -440,9 +440,9 @@ if __name__ == "__main__":
     elif args.check_integrity:
         valid, error = cm.verify_chain_integrity()
         if valid:
-            print_success("✓ Blockchain integrity verified - No tampering detected")
+            print_success("[+] Blockchain integrity verified - No tampering detected")
         else:
-            print_error(f"✗ Blockchain integrity check FAILED: {error}")
+            print_error(f"[x] Blockchain integrity check FAILED: {error}")
             
     else:
         # Default: list recent consents

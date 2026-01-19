@@ -1,27 +1,38 @@
-OSINT_INIT = '''#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 ATS-Toolkit - OSINT Package
 Open Source Intelligence gathering modules
 
-⚠️ EDUCATIONAL USE ONLY - AUTHORIZED SYSTEMS ONLY ⚠️
+Educational platform for authorized cybersecurity professionals.
 """
 
 __category__ = "osint"
 __description__ = "Open Source Intelligence Gathering"
-__modules_count__ = 1  # Phase 1: whois_lookup
 
-# Module registry
+# Module registry - dynamically updated by ModuleRegistry
 MODULES = {
-    'whois_lookup': {
-        'name': 'WHOIS Lookup',
-        'description': 'Domain registration information',
-        'requires': [],
-        'status': 'active',
-        'phase': 1
+    'dns_enum': {
+        'name': 'DNS Enumeration',
+        'description': 'Comprehensive DNS record enumeration',
+        'requires': ['dnspython'],
+        'status': 'active'
+    },
+    'subdomain_enum': {
+        'name': 'Subdomain Enumeration',
+        'description': 'Discover subdomains via Certificate Transparency',
+        'requires': ['aiohttp'],
+        'status': 'active'
+    },
+    'ip_geolocate': {
+        'name': 'IP Geolocation',
+        'description': 'Geolocate IP addresses',
+        'requires': ['aiohttp'],
+        'status': 'active'
     }
 }
 
 __all__ = [
     'MODULES',
+    '__category__',
+    '__description__',
 ]
-'''

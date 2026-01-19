@@ -1,9 +1,9 @@
-LEGAL_INIT = '''#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 ATS-Toolkit - Legal Package
 Legal disclaimer and consent management
 
-⚠️ EDUCATIONAL USE ONLY - AUTHORIZED SYSTEMS ONLY ⚠️
+Educational platform for authorized cybersecurity professionals.
 """
 
 from .disclaimer import (
@@ -17,4 +17,3 @@ __all__ = [
     'show_disclaimer',
     'check_acceptance_log',
 ]
-'''

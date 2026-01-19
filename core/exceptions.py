@@ -79,6 +79,14 @@ class ModuleDependencyError(ModuleError):
         super().__init__(self.message)
 
 
+class ModuleLoadError(ModuleError):
+    """Raised when module fails to load"""
+    def __init__(self, reason: str):
+        self.reason = reason
+        self.message = f"Module load failed: {reason}"
+        super().__init__(self.message)
+
+
 # ============================================================================
 # VALIDATION ERRORS
 # ============================================================================
@@ -307,24 +315,24 @@ if __name__ == "__main__":
     try:
         raise ConsentNotGivenError()
     except ATSToolkitError as e:
-        print(f"✓ Legal Error: {e}")
+        print(f"[+] Legal Error: {e}")
     
     # Test module errors
     try:
         raise ModuleNotFoundError("nonexistent_module")
     except ATSToolkitError as e:
-        print(f"✓ Module Error: {e}")
+        print(f"[+] Module Error: {e}")
     
     # Test validation errors
     try:
         raise InvalidTargetError("invalid..domain", "valid.domain.com")
     except ATSToolkitError as e:
-        print(f"✓ Validation Error: {e}")
+        print(f"[+] Validation Error: {e}")
     
     # Test API errors
     try:
         raise APIKeyMissingError("shodan")
     except ATSToolkitError as e:
-        print(f"✓ API Error: {e}")
+        print(f"[+] API Error: {e}")
     
     print("\n✅ All exception tests passed!")

@@ -1,151 +1,122 @@
-# ATS-Toolkit v2.0 - Production Dependencies
+# ATS-Toolkit v2.0 - Python Dependencies
+# Professional Security & Intelligence Framework
 # Python 3.12+ required
 
 # ============================================================================
 # CORE DEPENDENCIES
 # ============================================================================
 
-# Async & Networking
+# Async HTTP client
 aiohttp>=3.9.0
-asyncio>=3.4.3
-requests>=2.31.0
-urllib3>=2.1.0
+aiofiles>=23.2.1
 
-# CLI & Terminal
-rich>=13.7.0              # Beautiful terminal output
-click>=8.1.7              # CLI framework (alternative to argparse)
-colorama>=0.4.6           # Cross-platform colored terminal
+# DNS operations
+dnspython>=2.4.2
 
-# Configuration & Data
-PyYAML>=6.0.1             # YAML config parsing
-python-dotenv>=1.0.0      # Environment variables
-toml>=0.10.2              # TOML config support
+# Rich terminal output
+rich>=13.7.0
+textual>=0.47.0
 
-# ============================================================================
-# SECURITY & CRYPTOGRAPHY
-# ============================================================================
+# YAML configuration
+PyYAML>=6.0.1
+python-dotenv>=1.0.0
 
-cryptography>=41.0.7      # Fernet encryption, SSL/TLS
-hashlib                   # Built-in (SHA256, MD5)
-secrets                   # Built-in (secure random)
+# Cryptography (for cache encryption, consent hashing)
+cryptography>=41.0.7
+
+# Database
+aiosqlite>=0.19.0
 
 # ============================================================================
-# DATABASE
+# WEB UI (Streamlit)
 # ============================================================================
 
-# SQLite is built-in to Python
-aiosqlite>=0.19.0         # Async SQLite support
-
-# ============================================================================
-# WEB SCRAPING & OSINT
-# ============================================================================
-
-beautifulsoup4>=4.12.2    # HTML parsing
-lxml>=5.0.0               # XML/HTML parser (faster)
-selenium>=4.16.0          # Browser automation
-webdriver-manager>=4.0.1  # Auto-manage browser drivers
-
-# DNS & Network
-dnspython>=2.4.2          # DNS queries
-python-whois>=0.8.0       # WHOIS lookups
-shodan>=1.31.0            # Shodan API
-censys>=2.2.9             # Censys API
-
-# ============================================================================
-# PENTESTING TOOLS
-# ============================================================================
-
-python-nmap>=0.7.1        # Nmap Python bindings
-scapy>=2.5.0              # Packet manipulation
-
-# ============================================================================
-# WEB DASHBOARD
-# ============================================================================
-
-streamlit>=1.29.0         # Web dashboard framework
-plotly>=5.18.0            # Interactive charts
-pandas>=2.1.4             # Data manipulation
+streamlit>=1.29.0
+plotly>=5.18.0
+pandas>=2.1.4
 
 # WebSocket for real-time updates
-websockets>=12.0          # WebSocket server/client
+websockets>=12.0
 
 # ============================================================================
-# REPORTING & OUTPUT
+# OSINT MODULES
 # ============================================================================
 
-# PDF Generation
-reportlab>=4.0.7          # PDF creation
-PyPDF2>=3.0.1             # PDF manipulation
+# WHOIS lookups
+python-whois>=0.8.0
 
-# Excel support
-openpyxl>=3.1.2           # Excel read/write
+# HTTP requests
+requests>=2.31.0
+httpx>=0.25.2
+
+# Beautiful Soup (HTML parsing)
+beautifulsoup4>=4.12.2
+lxml>=4.9.3
+
+# Shodan (optional - requires API key)
+shodan>=1.31.0
+
+# ============================================================================
+# PENTEST MODULES
+# ============================================================================
+
+# Network scanning
+python-nmap>=0.7.1
+scapy>=2.5.0
+
+# Web security
+urllib3>=2.1.0
+
+# ============================================================================
+# REPORTING
+# ============================================================================
+
+# PDF generation
+reportlab>=4.0.7
+fpdf2>=2.7.6
 
 # Markdown
-markdown>=3.5.1           # Markdown processing
+markdown>=3.5.1
 
-# Mermaid diagrams (via markdown extension)
-# Note: Mermaid rendering done in frontend/browser
-
-# ============================================================================
-# DATE & TIME
-# ============================================================================
-
-python-dateutil>=2.8.2    # Date parsing
-pytz>=2023.3              # Timezone support
+# JSON/YAML
+orjson>=3.9.10
 
 # ============================================================================
-# LOGGING & MONITORING
+# UTILITIES
 # ============================================================================
 
-loguru>=0.7.2             # Advanced logging (alternative to stdlib logging)
+# Date/time
+python-dateutil>=2.8.2
+pytz>=2023.3
 
+# Regex
+regex>=2023.10.3
 
-# ============================================================================
-# OPTIONAL: Advanced Features
-# ============================================================================
+# Validators
+validators>=0.22.0
 
-# Uncomment if using these features:
+# Progress bars
+tqdm>=4.66.1
 
-# --- Machine Learning ---
-tensorflow>=2.15.0        # TensorFlow (large dependency)
-scikit-learn>=1.3.2       # ML algorithms
-numpy>=1.26.2             # Numerical computing
+# Colorama (cross-platform colored terminal)
+colorama>=0.4.6
 
-# --- Image Processing ---
-Pillow>=10.1.0            # Image manipulation
-opencv-python>=4.8.1      # Computer vision
-
-# --- Forensics ---
-volatility3>=2.5.0        # Memory forensics (requires special setup)
-yara-python>=4.5.0        # YARA malware rules
-
-# --- Social Media OSINT ---
-tweepy>=4.14.0            # Twitter API
-instaloader>=4.10.3       # Instagram scraper
-
-# --- Advanced Networking ---
-paramiko>=3.4.0           # SSH client
-impacket>=0.11.0          # Network protocols
+# Logging
+loguru>=0.7.2
 
 # ============================================================================
-# VERSION NOTES
+# NOTES
 # ============================================================================
-
-# This file contains MINIMAL dependencies for Phase 1-2
-# Additional dependencies will be added incrementally in later phases
-# For development dependencies, see requirements-dev.txt
-
-# Total install size: ~150-200 MB (without ML/TensorFlow)
-# With TensorFlow: ~1.5 GB
-
+#
 # Installation:
 #   pip install -r requirements.txt
 #
-# Upgrade all:
-#   pip install --upgrade -r requirements.txt
+# For development:
+#   pip install -r requirements-dev.txt
 #
-# Virtual environment (recommended):
-#   python3.12 -m venv venv
-#   source venv/bin/activate  # Linux/macOS
-#   venv\Scripts\activate     # Windows
-#   pip install -r requirements.txt
+# Some external tools are also recommended (install via your package manager):
+#   - nmap (port scanning)
+#   - sqlmap (SQL injection testing)
+#   - gobuster (directory fuzzing)
+#   - nuclei (vulnerability scanning)
+#

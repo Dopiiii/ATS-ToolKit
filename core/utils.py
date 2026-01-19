@@ -57,37 +57,64 @@ def print_banner():
     """Display ATS-Toolkit ASCII banner"""
     banner = f"""
 {Colors.ATS_CRIMSON}{Colors.BOLD}
-    ___  ___________   ______            __ __   _ __ 
+    ___  ___________   ______            __ __   _ __
    /   |/_  __/ ___/  /_  __/___  ____  / // /__(_) /_
-  / /| | / /  \__ \    / / / __ \/ __ \/ // //_/ / __/
- / ___ |/ /  ___/ /   / / / /_/ / /_/ / // ,< / / /_  
-/_/  |_/_/  /____/   /_/  \____/\____/_//_/|_/_/\__/  
-                                                        
-{Colors.ATS_RED}Attack & Testing Suite v2.0{Colors.RESET}
-{Colors.DIM}Professional Red Team Cybersecurity Platform{Colors.RESET}
-{Colors.YELLOW}⚠️  EDUCATIONAL USE ONLY - AUTHORIZED SYSTEMS ONLY ⚠️{Colors.RESET}
+  / /| | / /  \\__ \\    / / / __ \\/ __ \\/ // //_/ / __/
+ / ___ |/ /  ___/ /   / / / /_/ / /_/ / // ,< / / /_
+/_/  |_/_/  /____/   /_/  \\____/\\____/_//_/|_/_/\\__/
+
+{Colors.ATS_RED}ATS-Toolkit v2.0{Colors.RESET}
+{Colors.DIM}Professional Security & Intelligence Framework{Colors.RESET}
+{Colors.YELLOW}[!] EDUCATIONAL USE ONLY - AUTHORIZED SYSTEMS ONLY [!]{Colors.RESET}
 """
-    print(banner)
+    try:
+        print(banner)
+    except UnicodeEncodeError:
+        # Fallback for Windows console
+        simple_banner = """
+    ___  ___________   ______            __ __   _ __
+   /   |/_  __/ ___/  /_  __/___  ____  / // /__(_) /_
+  / /| | / /  \\__ \\    / / / __ \\/ __ \\/ // //_/ / __/
+ / ___ |/ /  ___/ /   / / / /_/ / /_/ / // ,< / / /_
+/_/  |_/_/  /____/   /_/  \\____/\\____/_//_/|_/_/\\__/
+
+ATS-Toolkit v2.0
+Professional Security & Intelligence Framework
+[!] EDUCATIONAL USE ONLY - AUTHORIZED SYSTEMS ONLY [!]
+"""
+        print(simple_banner)
 
 
 def print_success(message: str):
     """Print success message in green"""
-    print(f"{Colors.BRIGHT_GREEN}[✓]{Colors.RESET} {message}")
+    try:
+        print(f"{Colors.BRIGHT_GREEN}[+]{Colors.RESET} {message}")
+    except UnicodeEncodeError:
+        print(f"[+] {message}")
 
 
 def print_error(message: str):
     """Print error message in red"""
-    print(f"{Colors.BRIGHT_RED}[✗]{Colors.RESET} {message}", file=sys.stderr)
+    try:
+        print(f"{Colors.BRIGHT_RED}[x]{Colors.RESET} {message}", file=sys.stderr)
+    except UnicodeEncodeError:
+        print(f"[x] {message}", file=sys.stderr)
 
 
 def print_warning(message: str):
     """Print warning message in yellow"""
-    print(f"{Colors.BRIGHT_YELLOW}[!]{Colors.RESET} {message}")
+    try:
+        print(f"{Colors.BRIGHT_YELLOW}[!]{Colors.RESET} {message}")
+    except UnicodeEncodeError:
+        print(f"[!] {message}")
 
 
 def print_info(message: str):
     """Print info message in cyan"""
-    print(f"{Colors.BRIGHT_CYAN}[*]{Colors.RESET} {message}")
+    try:
+        print(f"{Colors.BRIGHT_CYAN}[*]{Colors.RESET} {message}")
+    except UnicodeEncodeError:
+        print(f"[*] {message}")
 
 
 def print_debug(message: str, debug: bool = False):

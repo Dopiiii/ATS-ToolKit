@@ -1,15 +1,16 @@
-OSINT_MODULES_INIT = '''#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 ATS-Toolkit - OSINT Modules Package
 Individual OSINT tool implementations
 
-⚠️ EDUCATIONAL USE ONLY - AUTHORIZED SYSTEMS ONLY ⚠️
+Educational platform for authorized cybersecurity professionals.
 """
 
-# Available modules (Phase 1)
+# Available modules
 AVAILABLE_MODULES = [
-    'whois_lookup',
+    'dns_enum',
+    'subdomain_enum',
+    'ip_geolocate',
 ]
 
 __all__ = AVAILABLE_MODULES
-'''

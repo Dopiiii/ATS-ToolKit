@@ -1,8 +1,0 @@
-# ============================================================================
-# TESTING (move to requirements-dev.txt for production)
-# ============================================================================
-
-# Uncomment for development:
- pytest>=7.4.3
- pytest-asyncio>=0.21.1
- pytest-cov>=4.1.0

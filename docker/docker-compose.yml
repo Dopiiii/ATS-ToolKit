@@ -1,0 +1,76 @@
+# ATS-Toolkit Docker Compose Configuration
+# Orchestrates API, Redis, and optional services
+
+services:
+  # FastAPI Backend
+  ats-api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: ats-api
+    ports:
+      - "8000:8000"
+    environment:
+      - ATS_ENV=production
+      - ATS_LOG_LEVEL=INFO
+      - ATS_REDIS_HOST=ats-redis
+      - ATS_REDIS_PORT=6379
+    volumes:
+      - ../logs:/app/logs
+      - ../config:/app/config:ro
+      - ../.env:/app/.env:ro
+    depends_on:
+      - ats-redis
+    restart: unless-stopped
+    networks:
+      - ats-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Redis Cache
+  ats-redis:
+    image: redis:7-alpine
+    container_name: ats-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - ats-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # Streamlit Web UI (Phase 2)
+  ats-streamlit:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: ats-streamlit
+    command: ["python", "-m", "streamlit", "run", "src/streamlit_ui/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    ports:
+      - "8501:8501"
+    environment:
+      - ATS_API_HOST=ats-api
+      - ATS_API_PORT=8000
+    depends_on:
+      - ats-api
+    restart: unless-stopped
+    networks:
+      - ats-network
+    profiles:
+      - web  # Only start with: docker-compose --profile web up
+
+networks:
+  ats-network:
+    driver: bridge
+
+volumes:
+  redis-data:

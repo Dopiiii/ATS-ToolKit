@@ -1,1 +1,3 @@
-"""ATS-Toolkit test suite."""
+"""
+Test suite for OSINT Platform.
+"""

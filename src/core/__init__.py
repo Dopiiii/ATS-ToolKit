@@ -1,87 +1,48 @@
-"""ATS-Toolkit Core Module.
+"""
+Core infrastructure modules.
 
-Provides core functionality including:
-- Configuration management with .env support
-- Structured logging with SQLite audit trail
-- Custom exception hierarchy
-- Base module class for toolkit modules
+This package contains the foundational components:
+- database: SQLAlchemy async database setup
+- security: Authentication, JWT, password hashing
+- logging: Structured logging with structlog
+- exceptions: Custom exception hierarchy
 """
 
-# Error Handling
-from src.core.error_handler import (
-    APIKeyMissingError,
-    AtsException,
-    ConfigurationError,
-    DependencyError,
-    ErrorDetails,
-    ExecutionError,
-    ModuleNotFoundError,
-    NetworkError,
+from src.core.database import get_db
+from src.core.exceptions import (
+    APIError,
+    AuthenticationError,
+    AuthorizationError,
+    NotFoundError,
     RateLimitError,
     ValidationError,
 )
-
-# Configuration
-from src.core.config_manager import (
-    AtsConfig,
-    ConfigManager,
-    get_config,
-    init_config,
-    reload_config,
-)
-
-# Logging
-from src.core.logger import (
-    LoggerMixin,
-    configure_module_logger,
-    get_logger,
-    query_audit_logs,
-    setup_logging,
-)
-
-# Base Module
-from src.core.base_module import (
-    AtsModule,
-    ExecutionResult,
-    ModuleCategory,
-    ModuleSpec,
-    OutputField,
-    Parameter,
-    ParameterType,
+from src.core.logging import get_logger, setup_logging
+from src.core.security import (
+    create_access_token,
+    create_refresh_token,
+    get_password_hash,
+    verify_password,
+    verify_token,
 )
 
 __all__ = [
-    # Error Handling
-    "AtsException",
-    "ValidationError",
-    "APIKeyMissingError",
-    "ExecutionError",
-    "ModuleNotFoundError",
-    "ConfigurationError",
-    "DependencyError",
-    "NetworkError",
-    "RateLimitError",
-    "ErrorDetails",
-    # Configuration
-    "AtsConfig",
-    "ConfigManager",
-    "init_config",
-    "get_config",
-    "reload_config",
+    # Database
+    "get_db",
+    # Security
+    "create_access_token",
+    "create_refresh_token",
+    "verify_token",
+    "get_password_hash",
+    "verify_password",
     # Logging
     "setup_logging",
     "get_logger",
-    "configure_module_logger",
-    "LoggerMixin",
-    "query_audit_logs",
-    # Base Module
-    "AtsModule",
-    "ModuleSpec",
-    "ModuleCategory",
-    "Parameter",
-    "ParameterType",
-    "OutputField",
-    "ExecutionResult",
+    # Exceptions
+    "APIError",
+    "AuthenticationError",
+    "AuthorizationError",
+    "NotFoundError",
+    "RateLimitError",
+    "ValidationError",
 ]
-
-__version__ = "2.0.0"

@@ -1,8 +1,12 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
+# C extensions
 *.so
+
+# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -20,63 +24,94 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual environments
-.venv/
-venv/
-ENV/
-env/
+# PyInstaller
+*.manifest
+*.spec
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*.sublime-*
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Testing
-.pytest_cache/
-.coverage
+# Unit test / coverage reports
 htmlcov/
 .tox/
 .nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
 coverage.xml
 *.cover
+*.py,cover
 .hypothesis/
+.pytest_cache/
 
-# Logs
-logs/
-*.log
+# Translations
+*.mo
+*.pot
 
-# Local config - NEVER commit these
+# Environments
 .env
 .env.local
-*.local.env
-config/local/
+.env.*.local
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
-# Database
-*.db
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Local development
+*.log
 *.sqlite
-*.sqlite3
+*.db
+logs/
+data/
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
-Desktop.ini
 
-# Build artifacts
-*.exe
-*.dll
-*.so
-*.dylib
+# Docker
+docker-compose.override.yml
 
-# Poetry
-poetry.lock
+# Secrets
+*.pem
+*.key
+secrets/
 
-# Temporary files
-tmp/
-temp/
-*.tmp
-*.bak
+# Alembic
+migrations/versions/*.pyc
 
-# Claude
-.claude/
+# Node (for future frontend)
+node_modules/
+
+# Test databases
+*.test.db

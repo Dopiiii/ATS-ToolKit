@@ -29,6 +29,13 @@ class ModuleCategory(Enum):
     WIRELESS = "wireless"
     CLOUD = "cloud"
     MOBILE = "mobile"
+    RED_TEAM = "red_team"
+    FUZZING = "fuzzing"
+    ML_DETECTION = "ml_detection"
+    MALWARE = "malware"
+    DECEPTION = "deception"
+    CONTINUOUS_PENTEST = "continuous_pentest"
+    ADVANCED = "advanced"
     MISC = "misc"
 
 

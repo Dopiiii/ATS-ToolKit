@@ -1,48 +1,48 @@
-"""
-Core infrastructure modules.
+"""ATS-Toolkit core infrastructure modules.
 
 This package contains the foundational components:
-- database: SQLAlchemy async database setup
-- security: Authentication, JWT, password hashing
-- logging: Structured logging with structlog
-- exceptions: Custom exception hierarchy
+- base_module: Abstract base class for all modules
+- config_manager: Configuration management
+- logger: Structured logging with structlog
+- error_handler: Custom exception hierarchy
 """
 
-from src.core.database import get_db
-from src.core.exceptions import (
-    APIError,
-    AuthenticationError,
-    AuthorizationError,
-    NotFoundError,
-    RateLimitError,
+from src.core.base_module import (
+    AtsModule,
+    ExecutionResult,
+    ModuleCategory,
+    ModuleSpec,
+    OutputField,
+    Parameter,
+    ParameterType,
+)
+from src.core.config_manager import ConfigManager
+from src.core.error_handler import (
+    APIKeyMissingError,
+    AtsException,
+    ExecutionError,
+    ModuleNotFoundError,
     ValidationError,
 )
-from src.core.logging import get_logger, setup_logging
-from src.core.security import (
-    create_access_token,
-    create_refresh_token,
-    get_password_hash,
-    verify_password,
-    verify_token,
-)
+from src.core.logger import setup_logging
 
 __all__ = [
-    # Database
-    "get_db",
-    # Security
-    "create_access_token",
-    "create_refresh_token",
-    "verify_token",
-    "get_password_hash",
-    "verify_password",
+    # Base module
+    "AtsModule",
+    "ExecutionResult",
+    "ModuleCategory",
+    "ModuleSpec",
+    "OutputField",
+    "Parameter",
+    "ParameterType",
+    # Config
+    "ConfigManager",
     # Logging
     "setup_logging",
-    "get_logger",
     # Exceptions
-    "APIError",
-    "AuthenticationError",
-    "AuthorizationError",
-    "NotFoundError",
-    "RateLimitError",
+    "AtsException",
     "ValidationError",
+    "APIKeyMissingError",
+    "ExecutionError",
+    "ModuleNotFoundError",
 ]

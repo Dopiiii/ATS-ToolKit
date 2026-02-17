@@ -1,193 +1,149 @@
-# OSINT Platform
+# ATS-Toolkit v2.0
 
-Enterprise intelligence gathering and analysis platform.
+Modular cybersecurity framework with 144 modules across 10 categories. Features TUI (Textual), Web UI (Streamlit), and REST API (FastAPI) interfaces.
 
-## Features (Phase 1)
+## Features
 
-- **Authentication**: JWT-based auth with refresh tokens
-- **User Management**: RBAC with admin, analyst, viewer roles
-- **API Keys**: Scoped API keys for programmatic access
-- **Audit Logging**: Complete audit trail of all actions
+- **144 Security Modules** across 10 categories
+- **TUI Interface** - Terminal UI built with Textual
+- **Web Interface** - Streamlit-based dashboard
+- **REST API** - FastAPI with WebSocket support
+- **Module Auto-Discovery** - Drop-in module architecture
+- **Structured Logging** - JSON logging with SQLite audit trail
+- **Docker Support** - Full containerized deployment
 
-## Quick Start
+## Module Categories
+
+| Category | Modules | Description |
+|----------|---------|-------------|
+| OSINT | 15 | Open Source Intelligence gathering |
+| Pentest | 15 | Penetration testing tools |
+| Red Team | 10 | Offensive security operations |
+| Forensics | 8 | Digital forensics analysis |
+| Fuzzing | 6 | Fuzz testing and input mutation |
+| ML Detection | 5 | Machine learning threat detection |
+| Malware | 4 | Malware analysis tools |
+| Deception | 5 | Honeypots and deception tech |
+| Continuous Pentest | 3 | Automated continuous testing |
+| Advanced | 73 | AI, Crypto, Web3, Network, Mobile, Social Engineering |
+
+## Quick Start (Windows)
+
+```batch
+:: Install dependencies
+install.bat
+
+:: Launch the toolkit
+start.bat
+```
+
+## Quick Start (Manual)
 
 ### Prerequisites
 
 - Python 3.11+
-- Docker and Docker Compose
 - Poetry (recommended) or pip
 
-### 1. Clone and Setup
+### Installation
 
 ```bash
-# Clone the repository
-git clone <repository-url>
-cd osint-platform
+# Create virtual environment
+python -m venv .venv
 
-# Copy environment file
+# Activate (Windows)
+.venv\Scripts\activate
+
+# Activate (Linux/macOS)
+source .venv/bin/activate
+
+# Install with Poetry
+poetry install
+
+# Or with pip
+pip install -e .
+
+# Copy environment config
 cp .env.example .env
-
-# Edit .env with your settings (especially SECRET_KEY)
 ```
 
-### 2. Start Database Services
+### Launch Options
 
 ```bash
-docker-compose up -d postgres redis
+# TUI Mode (Terminal Interface)
+python main.py --tui
+
+# Web UI Mode (Streamlit)
+python main.py --web
+
+# API Mode (FastAPI)
+python main.py --api
+
+# List all modules
+python main.py list
+
+# Run a specific module
+python main.py run <module_name>
 ```
 
-### 3. Install Dependencies
+## Docker Deployment
 
 ```bash
-# Using pip
-pip install -e ".[dev]"
-
-# Or using poetry
-poetry install --with dev
+cd docker
+docker-compose up -d
 ```
-
-### 4. Run Database Migrations
-
-```bash
-alembic upgrade head
-```
-
-### 5. Start the API Server
-
-```bash
-# Development mode (with auto-reload)
-uvicorn src.main:app --reload
-
-# Or using the CLI
-python -m src.main
-```
-
-### 6. Access the API
-
-- API Documentation: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
-- Health Check: http://localhost:8000/api/v1/health
 
 ## API Endpoints
 
-### Authentication
-
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/v1/auth/register` | Register new user |
-| POST | `/api/v1/auth/login` | Login and get tokens |
-| POST | `/api/v1/auth/refresh` | Refresh access token |
-| POST | `/api/v1/auth/logout` | Logout (audit only) |
-| GET | `/api/v1/auth/me` | Get current user |
-| POST | `/api/v1/auth/change-password` | Change password |
-
-### Users (Admin only)
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/v1/users` | List all users |
-| POST | `/api/v1/users` | Create user |
-| GET | `/api/v1/users/{id}` | Get user |
-| PATCH | `/api/v1/users/{id}` | Update user |
-| DELETE | `/api/v1/users/{id}` | Delete user |
-
-### API Keys
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/v1/users/me/api-keys` | List my API keys |
-| POST | `/api/v1/users/me/api-keys` | Create API key |
-| DELETE | `/api/v1/users/me/api-keys/{id}` | Delete API key |
-
-## Authentication
-
-The API supports two authentication methods:
-
-### 1. JWT Bearer Token
-
-```bash
-# Login to get tokens
-curl -X POST http://localhost:8000/api/v1/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"email": "user@example.com", "password": "YourPassword123"}'
-
-# Use the access token
-curl http://localhost:8000/api/v1/auth/me \
-  -H "Authorization: Bearer <access_token>"
-```
-
-### 2. API Key
-
-```bash
-# Create an API key (requires authentication first)
-curl -X POST http://localhost:8000/api/v1/users/me/api-keys \
-  -H "Authorization: Bearer <access_token>" \
-  -H "Content-Type: application/json" \
-  -d '{"name": "My API Key", "scopes": ["collections:read", "entities:read"]}'
-
-# Use the API key
-curl http://localhost:8000/api/v1/auth/me \
-  -H "X-API-Key: osint_<your_key>"
-```
-
-## Running Tests
-
-```bash
-# Create test database
-docker exec -it osint_postgres psql -U osint -c "CREATE DATABASE osint_test_db;"
-
-# Run tests
-pytest
-
-# With coverage
-pytest --cov=src --cov-report=html
-```
+| GET | `/health` | Health check |
+| GET | `/modules` | List all modules |
+| GET | `/modules/{name}` | Get module spec |
+| POST | `/modules/{name}/run` | Execute a module |
+| GET | `/config` | Get current config |
+| WS | `/ws/logs/{module}` | Live log streaming |
 
 ## Project Structure
 
 ```
-osint-platform/
+ATS-ToolKit/
 ├── src/
-│   ├── api/              # API routes
-│   │   └── v1/
-│   ├── core/             # Core infrastructure
-│   │   ├── database.py   # SQLAlchemy setup
-│   │   ├── security.py   # JWT & hashing
-│   │   ├── logging.py    # Structlog
-│   │   └── exceptions.py # Custom exceptions
-│   ├── models/           # SQLAlchemy models
-│   ├── schemas/          # Pydantic schemas
-│   ├── services/         # Business logic
-│   ├── config.py         # Configuration
-│   └── main.py           # FastAPI app
-├── migrations/           # Alembic migrations
-├── tests/                # Test suite
-├── docker-compose.yml    # Docker services
-├── pyproject.toml        # Dependencies
-└── README.md
+│   ├── core/               # Core engine
+│   │   ├── base_module.py  # Abstract base class
+│   │   ├── config_manager.py
+│   │   ├── logger.py
+│   │   └── error_handler.py
+│   ├── modules/            # 144 security modules
+│   │   ├── registry.py     # Auto-discovery registry
+│   │   ├── osint/          # 15 OSINT modules
+│   │   ├── pentest/        # 15 Pentest modules
+│   │   ├── red_team/       # 10 Red Team modules
+│   │   ├── forensics/      # 8 Forensics modules
+│   │   ├── fuzzing/        # 6 Fuzzing modules
+│   │   ├── ml_detection/   # 5 ML Detection modules
+│   │   ├── malware/        # 4 Malware modules
+│   │   ├── deception/      # 5 Deception modules
+│   │   ├── continuous_pentest/ # 3 Continuous Pentest
+│   │   └── advanced/       # 73 Advanced modules
+│   ├── api/                # FastAPI REST API
+│   ├── tui/                # Textual TUI
+│   └── streamlit_ui/       # Streamlit Web UI
+├── docker/                 # Docker deployment
+├── tests/                  # Test suite
+├── main.py                 # Entry point
+├── start.bat               # Windows launcher
+├── install.bat             # Windows installer
+├── pyproject.toml          # Dependencies
+└── .env.example            # Configuration template
 ```
 
-## Environment Variables
+## Configuration
 
-See `.env.example` for all available configuration options.
+See `.env.example` for all available settings including API keys for external services (Shodan, VirusTotal, HIBP, etc.).
 
-Key variables:
-- `SECRET_KEY`: JWT signing key (required, min 32 chars)
-- `DATABASE_URL`: PostgreSQL connection string
-- `REDIS_URL`: Redis connection string
-- `DEBUG`: Enable debug mode
+## Author
 
-## Next Phases
-
-This is Phase 1 of the OSINT Platform. Upcoming phases:
-
-- **Phase 2**: Data Collection Engine (10+ collectors)
-- **Phase 3**: Storage & Search (Elasticsearch, Neo4j)
-- **Phase 4**: React Frontend
-- **Phase 5**: Analysis & ML
-- **Phase 6**: Automation & Workflows
-- **Phase 7**: Reporting
-- **Phase 8**: Enterprise Features
+Eric Dopi - ATS-Toolkit Team
 
 ## License
 
